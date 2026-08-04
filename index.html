@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seleção de 1970 - Curiosidades</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a3d0a, #1a5f1a);
+      color: #fff;
+      line-height: 1.6;
+    }
+    .hero {
+      background: url('https://source.unsplash.com/1600x900/?pele-1970') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.65);
+    }
+    .hero h1 {
+      font-size: 3.5rem; z-index: 1; text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+    }
+    .hero p { font-size: 1.6rem; z-index: 1; margin-top: 10px; }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+    h2 { color: #ffd700; margin: 30px 0 20px; border-bottom: 3px solid #ffd700; padding-bottom: 10px; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+    .card:hover { transform: translateY(-10px); background: rgba(255,215,0,0.2); }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .galeria img {
+      width: 100%;
+      border-radius: 12px;
+      transition: 0.4s;
+    }
+    .galeria img:hover { transform: scale(1.05); }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #0a2a0a;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <div>
+        <h1>Seleção de 1970</h1>
+        <p>O Time do Século</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h2>Curiosidades da Seleção Brasileira de 1970</h2>
+    
+    <div class="cards">
+      <div class="card">
+        <h3>1. Tricampeã</h3>
+        <p>Foi a primeira seleção a conquistar 3 Copas do Mundo e ficou com a Taça Jules Rimet para sempre.</p>
+      </div>
+      <div class="card">
+        <h3>2. Jairzinho Imbatível</h3>
+        <p>Jairzinho marcou gol em todos os 6 jogos da Copa — um recorde que ninguém igualou até hoje.</p>
+      </div>
+      <div class="card">
+        <h3>3. O Gol mais bonito</h3>
+        <p>O quarto gol na final contra a Itália (de Carlos Alberto) é considerado um dos mais bonitos da história das Copas.</p>
+      </div>
+      <div class="card">
+        <h3>4. Jogo Bonito</h3>
+        <p>Essa seleção popularizou o "futebol arte" e encantou o mundo inteiro com seu estilo.</p>
+      </div>
+    </div>
+
+    <h2>Galeria</h2>
+    <div class="galeria">
+      <img src="https://source.unsplash.com/600x400/?pele" alt="Pelé">
+      <img src="https://source.unsplash.com/600x400/?brazil-worldcup-1970" alt="Seleção 1970">
+      <img src="https://source.unsplash.com/600x400/?jairzinho" alt="Jairzinho">
+    </div>
+  </main>
+
+  <footer>
+    <p>Seleção Brasileira de 1970 • O Maior Time da História</p>
+  </footer>
+</body>
+</html>
