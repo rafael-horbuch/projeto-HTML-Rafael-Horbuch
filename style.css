@@ -1,0 +1,152 @@
+/* Reset */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+:root{
+  --verde-escuro: #0a3d0a;
+  --verde: #1a5f1a;
+  --verde-fundo: #0a2a0a;
+  --dourado: #ffd700;
+  --texto: #fff;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+/* Hero */
+.hero {
+  background: url("https://source.unsplash.com/1600x900/?pele-1970") center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 0 18px;
+}
+
+.hero__content h1 {
+  font-size: 3.2rem;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+  letter-spacing: 1px;
+}
+
+.hero__content p {
+  font-size: 1.6rem;
+  margin-top: 10px;
+  opacity: 0.95;
+}
+
+/* Conteiner */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Títulos */
+.section-title {
+  color: var(--dourado);
+  margin: 30px 0 20px;
+  border-bottom: 3px solid var(--dourado);
+  padding-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.section-title--gallery{
+  margin-top: 46px;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.10);
+  padding: 25px;
+  border-radius: 15px;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255, 215, 0, 0.18);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 215, 0, 0.18);
+  border-color: rgba(255, 215, 0, 0.35);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.card p {
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+/* Galeria */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.galeria img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: 0.4s;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: var(--verde-fundo);
+  margin-top: 50px;
+  border-top: 1px solid rgba(255, 215, 0, 0.25);
+}
+
+footer p{
+  opacity: 0.95;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .hero__content h1 { font-size: 2.2rem; }
+  .hero__content p { font-size: 1.2rem; }
+  .galeria img { height: 210px; }
+}
