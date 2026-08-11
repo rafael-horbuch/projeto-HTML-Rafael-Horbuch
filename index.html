@@ -1,65 +1,881 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seleção de 1970 - Curiosidades</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vida Animal • Blog</title>
+  <style>
+    :root{
+      --bg: #060608;
+      --card: rgba(255,255,255,.06);
+      --card-2: rgba(255,255,255,.09);
+      --text: #eaeaf2;
+      --muted: rgba(234,234,242,.72);
+      --line: rgba(255,255,255,.12);
+      --accent: #38bdf8;   /* azul */
+      --accent2:#a78bfa;   /* roxo */
+      --good:#34d399;
+      --radius: 18px;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.45);
+      --max: 1100px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height: 100%; }
+    body{
+      margin:0;
+      background:
+        radial-gradient(1000px 500px at 20% -10%, rgba(56,189,248,.25), transparent 55%),
+        radial-gradient(900px 520px at 90% 0%, rgba(167,139,250,.18), transparent 50%),
+        radial-gradient(900px 600px at 50% 120%, rgba(52,211,153,.10), transparent 50%),
+        var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    img{ max-width: 100%; display:block; }
+
+    .wrap{ width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    /* Topbar */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(6,6,8,.55);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+
+    .brand{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      min-width: 240px;
+    }
+    .logo{
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.95));
+      box-shadow: 0 12px 35px rgba(56,189,248,.20);
+      position: relative;
+      overflow:hidden;
+    }
+    .logo::after{
+      content:"";
+      position:absolute; inset:-30px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 40%);
+      transform: rotate(12deg);
+    }
+    .brand h1{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: .2px;
+      line-height: 1.2;
+    }
+    .brand p{
+      margin:0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    nav{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav a{
+      color: var(--muted);
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .2s;
+    }
+    nav a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+
+    .cta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+    .btn{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: .2s;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.08); }
+    .btn-primary{
+      border-color: rgba(56,189,248,.35);
+      background: linear-gradient(135deg, rgba(56,189,248,.22), rgba(167,139,250,.16));
+    }
+    .btn-primary:hover{
+      border-color: rgba(56,189,248,.55);
+      background: linear-gradient(135deg, rgba(56,189,248,.30), rgba(167,139,250,.22));
+    }
+
+    /* Hero */
+    .hero{
+      padding: 34px 0 22px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .hero-card{
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(600px 240px at 20% 0%, rgba(56,189,248,.20), transparent 50%),
+        radial-gradient(500px 300px at 85% 20%, rgba(167,139,250,.18), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-content{
+      padding: 26px;
+      position: relative;
+      z-index: 1;
+    }
+    .pill{
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    .dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(56,189,248,.12);
+    }
+
+    .hero h2{
+      margin: 0 0 10px;
+      font-size: clamp(26px, 2.6vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -.5px;
+    }
+    .hero p{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 60ch;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items:center;
+      margin-top: 10px;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .stat{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 12px;
+    }
+    .stat strong{
+      display:block;
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+    .stat span{ color: var(--muted); font-size: 12px; }
+
+    /* Hero image card */
+    .image-card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      display:flex;
+      flex-direction: column;
+      min-height: 320px;
+      position: relative;
+    }
+    .image-card .img{
+      position: relative;
+      flex: 1;
+      min-height: 260px;
+      background:
+        radial-gradient(400px 260px at 20% 10%, rgba(56,189,248,.25), transparent 55%),
+        radial-gradient(360px 240px at 90% 40%, rgba(167,139,250,.20), transparent 60%);
+    }
+    .image-card img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.02);
+      opacity: .92;
+    }
+    .image-card .overlay{
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.65));
+      pointer-events:none;
+    }
+    .image-card .label{
+      position:absolute;
+      left: 14px;
+      bottom: 14px;
+      right: 14px;
+      display:flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-end;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+    }
+    .label strong{ font-size: 14px; }
+    .label span{ color: var(--muted); font-size: 12px; }
+
+    /* Sections */
+    .section{
+      padding: 18px 0 28px;
+    }
+    .section-head{
+      display:flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .section-head h3{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 60ch;
+    }
+
+    /* Posts grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      overflow:hidden;
+      transition: .2s;
+      display:flex;
+      flex-direction: column;
+      min-height: 360px;
+    }
+    .card:hover{ transform: translateY(-3px); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.05); }
+
+    .card .thumb{
+      position: relative;
+      height: 170px;
+      overflow:hidden;
+      background: rgba(255,255,255,.02);
+    }
+    .card .thumb img{
+      width:100%; height:100%; object-fit: cover;
+      transform: scale(1.02);
+      transition: .35s;
+      opacity: .95;
+    }
+    .card:hover .thumb img{ transform: scale(1.08); }
+    .thumb::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.60));
+      pointer-events:none;
+    }
+
+    .badge-row{
+      position:absolute;
+      left: 12px;
+      top: 12px;
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      color: rgba(255,255,255,.90);
+      backdrop-filter: blur(8px);
+    }
+    .badge.blue{ border-color: rgba(56,189,248,.35); }
+    .badge.purple{ border-color: rgba(167,139,250,.35); }
+    .badge.green{ border-color: rgba(52,211,153,.35); }
+
+    .card .body{
+      padding: 14px 14px 16px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .meta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .meta .sep{
+      width: 4px; height: 4px; border-radius: 999px;
+      background: rgba(255,255,255,.28);
+    }
+
+    .card h4{
+      margin:0;
+      font-size: 16px;
+      line-height: 1.25;
+      letter-spacing: .1px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card .bottom{
+      margin-top: auto;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+    }
+
+    .read{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      transition:.2s;
+      white-space: nowrap;
+    }
+    .read:hover{ border-color: rgba(56,189,248,.45); background: rgba(56,189,248,.12); }
+    .arrow{
+      width: 26px; height: 26px; border-radius: 10px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+    }
+
+    /* About + form */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .panel{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      padding: 16px;
+    }
+    .panel h3{
+      margin:0 0 8px;
+      font-size: 16px;
+    }
+    .panel p{
+      margin:0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    form{
+      display:grid;
+      gap: 10px;
+    }
+    label{
+      font-size: 12px;
+      color: var(--muted);
+    }
+    input, textarea{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--text);
+      outline: none;
+      transition: .2s;
+      font-size: 14px;
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    input:focus, textarea:focus{
+      border-color: rgba(56,189,248,.55);
+      box-shadow: 0 0 0 4px rgba(56,189,248,.12);
+    }
+
+    .form-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 16px;
+      background: rgba(0,0,0,.10);
+    }
+    .footer-grid{
+      display:flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .foot-links{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .foot-links a{
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .2s;
+    }
+    .foot-links a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Responsivo */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+      .two-col{ grid-template-columns: 1fr; }
+      .brand{ min-width: unset; }
+    }
+    @media (max-width: 560px){
+      .grid{ grid-template-columns: 1fr; }
+      nav{ display:none; }
+      .hero-actions .btn{ width: 100%; text-align:center; }
+      .hero-stats{ grid-template-columns: 1fr; }
+      .form-row{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
   <header>
-    <div class="hero">
-      <div class="hero__content">
-        <h1>Seleção de 1970</h1>
-        <p>O Time do Século</p>
+    <div class="wrap topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Vida Animal</h1>
+          <p>Blog sobre comportamento, curiosidades e natureza</p>
+        </div>
+      </div>
+
+      <nav aria-label="Menu">
+        <a href="#destaques">Destaques</a>
+        <a href="#posts">Posts</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="#posts">Ver posts</a>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <h2 class="section-title">Curiosidades da Seleção Brasileira de 1970</h2>
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="hero-content">
+            <div class="pill">
+              <span class="dot"></span>
+              <span>Curiosidades • Ecologia • Zoologia • Fotos incríveis</span>
+            </div>
 
-    <section class="cards" aria-label="Curiosidades da Seleção de 1970">
-      <article class="card">
-        <h3>1. Tricampeã</h3>
-        <p>
-          Foi a primeira seleção a conquistar 3 Copas do Mundo e ficou com a Taça Jules Rimet para sempre.
-        </p>
-      </article>
+            <h2>Um blog para amar os animais — e entender como eles vivem.</h2>
+            <p>
+              Explore artigos com linguagem simples e imagens bonitas.
+              Aqui você encontra guias, curiosidades e pequenas histórias do mundo animal.
+            </p>
 
-      <article class="card">
-        <h3>2. Jairzinho Imbatível</h3>
-        <p>
-          Jairzinho marcou gol em todos os 6 jogos da Copa — um recorde que ninguém igualou até hoje.
-        </p>
-      </article>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#posts">Começar agora</a>
+              <a class="btn" href="#sobre">Conheça o projeto</a>
+            </div>
 
-      <article class="card">
-        <h3>3. O Gol mais bonito</h3>
-        <p>
-          O quarto gol na final contra a Itália (de Carlos Alberto) é considerado um dos mais bonitos da história das Copas.
-        </p>
-      </article>
+            <div class="hero-stats" aria-label="Destaques">
+              <div class="stat">
+                <strong>12+</strong>
+                <span>Temas de artigos</span>
+              </div>
+              <div class="stat">
+                <strong>3</strong>
+                <span>Categorias principais</span>
+              </div>
+              <div class="stat">
+                <strong>100%</strong>
+                <span>Design responsivo</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <article class="card">
-        <h3>4. Jogo Bonito</h3>
-        <p>
-          Essa seleção popularizou o "futebol arte" e encantou o mundo inteiro com seu estilo.
-        </p>
-      </article>
+        <aside class="image-card" aria-label="Imagem de destaque">
+          <div class="img">
+            <img
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80"
+              alt="Imagem de um animal selvagem em ambiente natural"
+            />
+            <div class="overlay"></div>
+
+            <div class="label">
+              <div>
+                <strong>Espaço para imagens</strong>
+                <span>Troque as fotos pelos seus temas</span>
+              </div>
+              <div class="badge green">Novidade</div>
+            </div>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <h2 class="section-title section-title--gallery">Galeria</h2>
+    <section class="section" id="destaques">
+      <div class="section-head">
+        <h3>Destaques</h3>
+        <p>Seleção de temas populares para começar a explorar.</p>
+      </div>
 
-    <section class="galeria" aria-label="Galeria de imagens da Seleção Brasileira de 1970">
-      <img src="https://source.unsplash.com/600x400/?pele" alt="Pelé">
-      <img src="https://source.unsplash.com/600x400/?brazil-worldcup-1970" alt="Seleção 1970">
-      <img src="https://source.unsplash.com/600x400/?jairzinho" alt="Jairzinho">
+      <div class="grid">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="thumb">
+            <div class="badge-row">
+              <span class="badge blue">Comportamento</span>
+              <span class="badge purple">Curiosidades</span>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?auto=format&fit=crop&w=1400&q=80"
+              alt="Animais em ambiente natural"
+            />
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span>Leitura: 6 min</span><span class="sep"></span><span>Atualizado</span>
+            </div>
+            <h4>Como os animais se comunicam (mesmo sem palavras)</h4>
+            <p>Saiba como sinais, sons e movimentos ajudam cada espécie a sobreviver.</p>
+
+            <div class="bottom">
+              <a class="read" href="#posts">
+                Ler artigo
+                <span class="arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="thumb">
+            <div class="badge-row">
+              <span class="badge purple">Ecologia</span>
+              <span class="badge blue">Habitat</span>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1444464666168-49c3c7e8b02b?auto=format&fit=crop&w=1400&q=80"
+              alt="Natureza com animais ao fundo"
+            />
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span>Leitura: 5 min</span><span class="sep"></span><span>Dica</span>
+            </div>
+            <h4>Habitat e adaptação: por que cada espécie “combina” com o lugar</h4>
+            <p>Entenda adaptações físicas e comportamentais que fazem diferença no dia a dia.</p>
+
+            <div class="bottom">
+              <a class="read" href="#posts">
+                Ler artigo
+                <span class="arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="thumb">
+            <div class="badge-row">
+              <span class="badge green">Guia</span>
+              <span class="badge blue">Observação</span>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=1400&q=80"
+              alt="Animal próximo em ambiente natural"
+            />
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span>Leitura: 7 min</span><span class="sep"></span><span>Prático</span>
+            </div>
+            <h4>Como observar animais na natureza sem atrapalhar</h4>
+            <p>Boas práticas para respeitar o ambiente e aumentar a chance de ver comportamentos reais.</p>
+
+            <div class="bottom">
+              <a class="read" href="#posts">
+                Ler artigo
+                <span class="arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="posts">
+      <div class="section-head">
+        <h3>Posts recentes</h3>
+        <p>Cards prontos com imagens. Troque títulos e textos para personalizar.</p>
+      </div>
+
+      <div class="grid">
+        <!-- Post 1 -->
+        <article class="card">
+          <div class="thumb">
+            <div class="badge-row">
+              <span class="badge blue">Vida Selvagem</span>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1400&q=80"
+              alt="Panorama de natureza com animais"
+            />
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span>Novidades</span><span class="sep"></span><span>Hoje</span>
+            </div>
+            <h4>Rituais da natureza: encontros que fazem parte da sobrevivência</h4>
+            <p>Entenda por que muitos comportamentos existem para sinais, reprodução e organização.</p>
+            <div class="bottom">
+              <a class="read" href="#contato">
+                Comentar
+                <span class="arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="card">
+          <div class="thumb">
+            <div class="badge-row">
+              <span class="badge purple">Ciência</span>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1501706362039-c6e80948c4f1?auto=format&fit=crop&w=1400&q=80"
+              alt="Animal em ambiente natural"
+            />
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span>Leitura: 4 min</span><span class="sep"></span><span>Aprenda</span>
+            </div>
+            <h4>Superpoderes biológicos: camuflagem e mimetismo</h4>
+            <p>Como espécies “somem” no ambiente e usam truques visuais para escapar.</p>
+            <div class="bottom">
+              <a class="read" href="#posts">
+                Ler mais
+                <span class="arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="card">
+          <div class="thumb">
+            <div class="badge-row">
+              <span class="badge green">Animais Urbanos</span>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1400&q=80"
+              alt="Animais no ambiente"
+            />
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span>Leitura: 6 min</span><span class="sep"></span><span>Interesse</span>
+            </div>
+            <h4>Convivência: como algumas espécies vivem perto de nós</h4>
+            <p>Veja adaptações comportamentais e como reduzir conflitos no dia a dia.</p>
+            <div class="bottom">
+              <a class="read" href="#contato">
+                Falar com a equipe
+                <span class="arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="two-col">
+        <div class="panel">
+          <h3>Sobre o blog</h3>
+          <p>
+            Este site foi feito com foco em leitura confortável, imagens bonitas e um visual moderno com fundo preto.
+            Você pode personalizar cores, substituir imagens e ajustar os textos.
+          </p>
+          <p>
+            Dica: para mudar uma imagem, troque o link do atributo <code style="color: rgba(234,234,242,.9)">src</code> no HTML do card.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Assinar novidades</h3>
+          <p>Receba posts e curiosidades. (Formulário de exemplo)</p>
+          <form onsubmit="event.preventDefault(); alert('Obrigado! (demo)');">
+            <div class="form-row">
+              <div>
+                <label for="nome">Seu nome</label>
+                <input id="nome" name="nome" placeholder="Ex.: Ana" />
+              </div>
+              <div>
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" placeholder="voce@exemplo.com" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="tema">Tema preferido</label>
+              <input id="tema" name="tema" placeholder="Ex.: camuflagem, habitats..." />
+            </div>
+
+            <button class="btn btn-primary" type="submit">Assinar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="panel">
+        <h3>Contato</h3>
+        <p>Envie uma sugestão de tema ou reporte um erro. (Formulário de exemplo)</p>
+
+        <form onsubmit="event.preventDefault(); alert('Mensagem enviada! (demo)');">
+          <div class="form-row">
+            <div>
+              <label for="contact-nome">Nome</label>
+              <input id="contact-nome" placeholder="Ex.: João" required />
+            </div>
+            <div>
+              <label for="contact-email">E-mail</label>
+              <input id="contact-email" type="email" placeholder="joao@exemplo.com" required />
+            </div>
+          </div>
+
+          <div>
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" placeholder="Conte sua ideia..." required></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Enviar mensagem</button>
+        </form>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>Seleção Brasileira de 1970 • O Maior Time da História</p>
+    <div class="wrap footer-grid">
+      <div>
+        <strong style="color: rgba(255,255,255,.92);">Vida Animal</strong>
+        <div style="margin-top:6px; font-size:13px;">
+          Feito com HTML e CSS — fundo preto, cards e layout responsivo.
+        </div>
+      </div>
+
+      <div class="foot-links" aria-label="Links do rodapé">
+        <a href="#posts">Posts</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
