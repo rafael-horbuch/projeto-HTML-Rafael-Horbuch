@@ -3,212 +3,272 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vida Animal | Blog sobre a Natureza</title>
+  <title>Vida Animal | Blog sobre a Natureza Selvagem</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <span>🌍 Explorando a vida selvagem desde 2024</span>
+      <div class="top-links">
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+        <a href="#">Newsletter</a>
+      </div>
+    </div>
+  </div>
 
   <!-- HEADER -->
   <header>
     <div class="container header-content">
       <div class="logo">
-        🦁 <span>Vida</span> Animal
+        <span class="logo-icon">🦁</span>
+        <div>
+          <strong>Vida Animal</strong>
+          <small>Natureza & Conservação</small>
+        </div>
       </div>
+
       <nav>
         <ul>
-          <li><a href="#">Início</a></li>
+          <li><a href="#" class="active">Início</a></li>
           <li><a href="#">Artigos</a></li>
           <li><a href="#">Categorias</a></li>
-          <li><a href="#">Sobre</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="#">Galeria</a></li>
+          <li><a href="#">Conservação</a></li>
         </ul>
       </nav>
+
+      <div class="header-actions">
+        <button class="search-btn">🔍</button>
+        <a href="#" class="btn-primary">Assinar</a>
+      </div>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <h1>Descubra a Beleza da Vida Selvagem</h1>
-      <p>Histórias, curiosidades e a magia dos animais que compartilham o planeta conosco.</p>
-      <a href="#artigos" class="btn">Explorar Artigos</a>
+      <span class="hero-badge">Destaque da Semana</span>
+      <h1>A Inteligência Surpreendente<br>dos Elefantes Africanos</h1>
+      <p>Eles choram, se consolam e guardam memórias por décadas. Uma jornada profunda pela mente de um dos animais mais fascinantes do planeta.</p>
+      <div class="hero-meta">
+        <span>Por Ana Souza</span>
+        <span>•</span>
+        <span>12 de Agosto, 2026</span>
+        <span>•</span>
+        <span>8 min de leitura</span>
+      </div>
+      <a href="#" class="btn-hero">Ler Artigo Completo →</a>
     </div>
   </section>
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <div class="container main-content">
-    
-    <!-- POSTS -->
-    <main id="artigos">
-      <h2 class="section-title">Artigos Recentes</h2>
-      
+  <!-- FEATURED + SIDE -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="featured-grid">
+
+        <!-- Artigo em destaque grande -->
+        <article class="featured-main">
+          <div class="featured-img">
+            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=900&q=80" alt="Leão">
+            <span class="category">Mamíferos</span>
+          </div>
+          <div class="featured-content">
+            <h2>O Rei da Savana: Segredos do Comportamento dos Leões</h2>
+            <p>Como as manadas se organizam, a importância das leoas na caça e o que o rugido realmente comunica entre os indivíduos.</p>
+            <div class="post-meta">
+              <span>15 Ago 2026</span>
+              <a href="#">Continuar lendo →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lista lateral de destaques -->
+        <div class="featured-side">
+          <h3 class="side-title">Mais Lidos</h3>
+
+          <article class="side-post">
+            <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=200&q=80" alt="Elefante">
+            <div>
+              <span class="category-sm">Mamíferos</span>
+              <h4>A memória excepcional dos elefantes</h4>
+              <span class="date">08 Ago 2026</span>
+            </div>
+          </article>
+
+          <article class="side-post">
+            <img src="https://images.unsplash.com/photo-1444464666168-49d633b433be?auto=format&fit=crop&w=200&q=80" alt="Aves">
+            <div>
+              <span class="category-sm">Aves</span>
+              <h4>A grande migração das aves</h4>
+              <span class="date">02 Ago 2026</span>
+            </div>
+          </article>
+
+          <article class="side-post">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=200&q=80" alt="Oceano">
+            <div>
+              <span class="category-sm">Marinho</span>
+              <h4>Criaturas das profundezas</h4>
+              <span class="date">28 Jul 2026</span>
+            </div>
+          </article>
+
+          <article class="side-post">
+            <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef3?auto=format&fit=crop&w=200&q=80" alt="Panda">
+            <div>
+              <span class="category-sm">Conservação</span>
+              <h4>Pandas: uma história de esperança</h4>
+              <span class="date">20 Jul 2026</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÚLTIMOS ARTIGOS -->
+  <section class="latest-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Últimos Artigos</h2>
+        <a href="#" class="view-all">Ver todos →</a>
+      </div>
+
       <div class="posts-grid">
-        
-        <!-- Post 1 -->
-        <article class="post-card">
-          <div class="post-img">
-            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=600&q=80" alt="Leão">
-          </div>
-          <div class="post-content">
-            <span class="post-category">Mamíferos</span>
-            <h3>O Rei da Savana: Segredos do Leão</h3>
-            <p>Descubra como os leões vivem em manadas e por que o rugido deles pode ser ouvido a quilômetros de distância.</p>
-            <div class="post-meta">
-              <span>12 Ago 2026</span>
-              <a href="#" class="read-more">Ler mais →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Post 2 -->
-        <article class="post-card">
-          <div class="post-img">
-            <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=600&q=80" alt="Elefante">
-          </div>
-          <div class="post-content">
-            <span class="post-category">Mamíferos</span>
-            <h3>A Inteligência Surpreendente dos Elefantes</h3>
-            <p>Eles se reconhecem no espelho, sentem empatia e têm uma memória excepcional. Conheça mais sobre esses gigantes.</p>
-            <div class="post-meta">
-              <span>08 Ago 2026</span>
-              <a href="#" class="read-more">Ler mais →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Post 3 -->
-        <article class="post-card">
-          <div class="post-img">
-            <img src="https://images.unsplash.com/photo-1444464666168-49d633b433be?auto=format&fit=crop&w=600&q=80" alt="Pássaros">
-          </div>
-          <div class="post-content">
-            <span class="post-category">Aves</span>
-            <h3>Migração: A Jornada Épica das Aves</h3>
-            <p>Como milhões de pássaros percorrem milhares de quilômetros todos os anos sem se perder no caminho.</p>
-            <div class="post-meta">
-              <span>02 Ago 2026</span>
-              <a href="#" class="read-more">Ler mais →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Post 4 -->
-        <article class="post-card">
-          <div class="post-img">
-            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Oceano">
-          </div>
-          <div class="post-content">
-            <span class="post-category">Marinho</span>
-            <h3>Os Mistérios das Profundezas Oceânicas</h3>
-            <p>Criaturas bioluminescentes, tubarões gigantes e a vida em um mundo ainda pouco explorado.</p>
-            <div class="post-meta">
-              <span>28 Jul 2026</span>
-              <a href="#" class="read-more">Ler mais →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Post 5 -->
-        <article class="post-card">
-          <div class="post-img">
-            <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef3?auto=format&fit=crop&w=600&q=80" alt="Panda">
-          </div>
-          <div class="post-content">
-            <span class="post-category">Conservação</span>
-            <h3>Pandas: Uma História de Esperança</h3>
-            <p>Como o esforço de conservação trouxe a espécie de volta do limiar da extinção.</p>
-            <div class="post-meta">
-              <span>20 Jul 2026</span>
-              <a href="#" class="read-more">Ler mais →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Post 6 -->
         <article class="post-card">
           <div class="post-img">
             <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=600&q=80" alt="Lobo">
+            <span class="category">Mamíferos</span>
           </div>
           <div class="post-content">
-            <span class="post-category">Mamíferos</span>
-            <h3>A Vida Social dos Lobos</h3>
-            <p>Estrutura hierárquica, comunicação e a importância da matilha para a sobrevivência.</p>
-            <div class="post-meta">
+            <h3>A complexa vida social dos lobos</h3>
+            <p>Estrutura hierárquica, comunicação vocal e a importância da matilha para a sobrevivência na natureza.</p>
+            <div class="post-footer">
               <span>15 Jul 2026</span>
-              <a href="#" class="read-more">Ler mais →</a>
+              <a href="#">Ler mais</a>
             </div>
           </div>
         </article>
 
-      </div>
-    </main>
+        <article class="post-card">
+          <div class="post-img">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80" alt="Tigre">
+            <span class="category">Predadores</span>
+          </div>
+          <div class="post-content">
+            <h3>Tigres: mestres do camuflagem</h3>
+            <p>Como as listras ajudam na caça e por que cada tigre possui um padrão único de pelagem.</p>
+            <div class="post-footer">
+              <span>10 Jul 2026</span>
+              <a href="#">Ler mais</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      
-      <div class="widget about-widget">
-        <h3>Sobre o Blog</h3>
-        <p>Bem-vindo ao <strong>Vida Animal</strong>! Aqui celebramos a diversidade, inteligência e beleza do reino animal através de artigos informativos e apaixonados.</p>
-        <a href="#" class="btn" style="padding: 0.6rem 1.4rem; font-size: 0.9rem;">Saiba mais</a>
-      </div>
+        <article class="post-card">
+          <div class="post-img">
+            <img src="https://images.unsplash.com/photo-1474511320723-9a56873571b0?auto=format&fit=crop&w=600&q=80" alt="Raposa">
+            <span class="category">Mamíferos</span>
+          </div>
+          <div class="post-content">
+            <h3>A inteligência das raposas</h3>
+            <p>Estratégias de caça, adaptação urbana e curiosidades sobre um dos animais mais espertos da natureza.</p>
+            <div class="post-footer">
+              <span>05 Jul 2026</span>
+              <a href="#">Ler mais</a>
+            </div>
+          </div>
+        </article>
 
-      <div class="widget categories">
-        <h3>Categorias</h3>
-        <ul>
-          <li><a href="#">Mamíferos <span>24</span></a></li>
-          <li><a href="#">Aves <span>18</span></a></li>
-          <li><a href="#">Vida Marinha <span>15</span></a></li>
-          <li><a href="#">Répteis <span>11</span></a></li>
-          <li><a href="#">Conservação <span>9</span></a></li>
-          <li><a href="#">Curiosidades <span>32</span></a></li>
-        </ul>
+        <article class="post-card">
+          <div class="post-img">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=600&q=80" alt="Baleia">
+            <span class="category">Marinho</span>
+          </div>
+          <div class="post-content">
+            <h3>O canto misterioso das baleias</h3>
+            <p>Comunicações complexas que atravessam oceanos e o que a ciência já descobriu sobre elas.</p>
+            <div class="post-footer">
+              <span>01 Jul 2026</span>
+              <a href="#">Ler mais</a>
+            </div>
+          </div>
+        </article>
       </div>
+    </div>
+  </section>
 
-      <div class="widget">
-        <h3>Tags Populares</h3>
-        <div class="tags">
-          <a href="#" class="tag">Savana</a>
-          <a href="#" class="tag">Oceano</a>
-          <a href="#" class="tag">Floresta</a>
-          <a href="#" class="tag">Predadores</a>
-          <a href="#" class="tag">Extinção</a>
-          <a href="#" class="tag">Migração</a>
-          <a href="#" class="tag">África</a>
-          <a href="#" class="tag">Amazônia</a>
-        </div>
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container newsletter-content">
+      <div>
+        <h2>Receba os melhores artigos</h2>
+        <p>Toda semana enviamos conteúdos exclusivos sobre vida selvagem, conservação e curiosidades do reino animal.</p>
       </div>
-
-    </aside>
-  </div>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Seu melhor e-mail" required>
+        <button type="submit">Assinar</button>
+      </form>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-about">
-          <h3>🦁 Vida Animal</h3>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">🦁</span>
+            <div>
+              <strong>Vida Animal</strong>
+              <small>Natureza & Conservação</small>
+            </div>
+          </div>
           <p>Um espaço dedicado a revelar a beleza, a inteligência e a importância de proteger a vida selvagem em nosso planeta.</p>
         </div>
-        <div class="footer-links">
-          <h4>Links Rápidos</h4>
+
+        <div>
+          <h4>Explorar</h4>
           <ul>
-            <li><a href="#">Início</a></li>
             <li><a href="#">Artigos</a></li>
             <li><a href="#">Categorias</a></li>
-            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Galeria</a></li>
+            <li><a href="#">Conservação</a></li>
           </ul>
         </div>
-        <div class="footer-contact">
-          <h4>Contato</h4>
-          <p style="opacity: 0.85; margin-bottom: 0.5rem;">contato@vidanimal.com</p>
-          <p style="opacity: 0.85;">© 2026 Vida Animal</p>
+
+        <div>
+          <h4>Sobre</h4>
+          <ul>
+            <li><a href="#">Nossa Missão</a></li>
+            <li><a href="#">Equipe</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Parceiros</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Siga-nos</h4>
+          <div class="social">
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Twitter</a>
+            <a href="#">Pinterest</a>
+          </div>
         </div>
       </div>
+
       <div class="footer-bottom">
-        Feito com ❤️ para os amantes da natureza
+        <p>© 2026 Vida Animal. Todos os direitos reservados.</p>
+        <p>Feito com ❤️ para os amantes da natureza</p>
       </div>
     </div>
   </footer>
