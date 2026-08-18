@@ -1,90 +1,81 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: #f7f9f4;
-  color: #1a1a1a;
-  line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #2e7d32;
+    color: white;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
 
 .container {
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-/* Header */
-header {
-  background: #0f2c24;
-  color: white;
-  padding: 1.2rem 0;
+.curiosidade {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    border-left: 6px solid #43a047;
+    transition: transform 0.2s;
 }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+.curiosidade:hover {
+    transform: translateY(-3px);
 }
 
-/* Hero */
-.hero {
-  background: #1b4332;
-  color: white;
-  text-align: center;
-  padding: 4.5rem 0;
+.curiosidade h2 {
+    color: #2e7d32;
+    margin-bottom: 12px;
+    font-size: 1.4rem;
 }
 
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  margin-bottom: 0.8rem;
+.curiosidade p {
+    font-size: 1.05rem;
+    color: #444;
 }
 
-.hero p {
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
-/* Curiosidades */
-.curiosidades {
-  padding: 4rem 0;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.8rem;
-  margin-bottom: 1.4rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-}
-
-.card h2 {
-  font-size: 1.25rem;
-  color: #0f2c24;
-  margin-bottom: 0.7rem;
-}
-
-.card p {
-  color: #444;
-  font-size: 1rem;
-}
-
-/* Footer */
 footer {
-  background: #0f2c24;
-  color: rgba(255,255,255,0.8);
-  text-align: center;
-  padding: 1.5rem 0;
-  font-size: 0.9rem;
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    color: #555;
+    font-size: 0.95rem;
 }
 
-/* Responsivo */
+/* Responsivo simples */
 @media (max-width: 600px) {
-  .hero h1 {
-    font-size: 1.9rem;
-  }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    .curiosidade {
+        padding: 18px;
+    }
 }
