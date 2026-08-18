@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #f7f9f4;
+  background: #f8faf7;
   color: #1a1a1a;
   line-height: 1.6;
 }
@@ -21,7 +21,7 @@ body {
 header {
   background: #0f2c24;
   color: white;
-  padding: 1.2rem 0;
+  padding: 1.1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -35,14 +35,15 @@ header .container {
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
 }
 
 nav a {
   color: rgba(255,255,255,0.85);
   text-decoration: none;
-  margin-left: 1.8rem;
+  margin-left: 1.6rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
@@ -52,23 +53,23 @@ nav a:hover {
 
 /* Hero */
 .hero {
-  background: linear-gradient(rgba(15,44,36,0.8), rgba(15,44,36,0.8)),
+  background: linear-gradient(rgba(15,44,36,0.78), rgba(15,44,36,0.78)),
               url('https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1600&q=80') center/cover;
   color: white;
-  padding: 8rem 0;
   text-align: center;
+  padding: 7rem 0;
 }
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin-bottom: 1rem;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   opacity: 0.9;
-  max-width: 500px;
+  max-width: 480px;
   margin: 0 auto;
 }
 
@@ -79,22 +80,22 @@ nav a:hover {
 
 .artigos h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 2.5rem;
+  font-size: 1.9rem;
   color: #0f2c24;
+  margin-bottom: 2.2rem;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.8rem;
+  gap: 1.6rem;
 }
 
 .card {
   background: white;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
   transition: transform 0.3s;
 }
 
@@ -108,44 +109,44 @@ nav a:hover {
   object-fit: cover;
 }
 
-.card-content {
+.info {
   padding: 1.3rem;
 }
 
-.card-content span {
+.info span {
   font-size: 0.75rem;
   font-weight: 600;
   color: #2d6a4f;
   text-transform: uppercase;
 }
 
-.card-content h3 {
-  font-size: 1.15rem;
-  margin: 0.4rem 0;
+.info h3 {
+  font-size: 1.1rem;
   color: #0f2c24;
+  margin: 0.4rem 0 0.5rem;
 }
 
-.card-content p {
+.info p {
   font-size: 0.9rem;
-  color: #555;
+  color: #666;
 }
 
 /* Sobre */
 .sobre {
-  background: #e8f5e9;
-  padding: 5rem 0;
+  background: #e9f5ec;
+  padding: 4.5rem 0;
   text-align: center;
 }
 
 .sobre h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.9rem;
   color: #0f2c24;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .sobre p {
-  max-width: 650px;
+  max-width: 600px;
   margin: 0 auto;
   color: #444;
   font-size: 1.05rem;
@@ -153,27 +154,27 @@ nav a:hover {
 
 /* Contato */
 .contato {
-  padding: 5rem 0;
+  padding: 4.5rem 0;
   text-align: center;
 }
 
 .contato h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.9rem;
   color: #0f2c24;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .contato p {
-  margin-bottom: 1.8rem;
   color: #555;
+  margin-bottom: 1.6rem;
 }
 
 form {
   display: flex;
   justify-content: center;
-  gap: 0.8rem;
-  max-width: 420px;
+  gap: 0.7rem;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -190,10 +191,11 @@ form button {
   background: #2d6a4f;
   color: white;
   border: none;
-  padding: 0 1.8rem;
+  padding: 0 1.6rem;
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 form button:hover {
@@ -205,14 +207,14 @@ footer {
   background: #0f2c24;
   color: rgba(255,255,255,0.8);
   text-align: center;
-  padding: 1.8rem 0;
+  padding: 1.6rem 0;
   font-size: 0.9rem;
 }
 
 /* Responsivo */
 @media (max-width: 700px) {
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
   }
 
   nav {
